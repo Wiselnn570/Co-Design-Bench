@@ -1,0 +1,2 @@
+{"type":"result","value":{"uuid":"synthetic-render-ok","requirements":[{"req":"A title is visible","verdict":"PASS","evidence":"Screenshot confirms the title is visible."}],"notes":"Synthetic audit example; not a benchmark result."}}
+{"type":"result","value":{"uuid":"synthetic-render-failed","requirements":[{"req":"A title is visible","verdict":"FAIL","evidence":"Application build failed; no rendered page was available."}],"notes":"Synthetic audit example; not a benchmark result."}}

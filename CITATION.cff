@@ -1,0 +1,75 @@
+cff-version: 1.2.0
+message: "If you use Co-Design Bench, please cite the manuscript below."
+title: "Co-Design Bench"
+url: "https://codesignbench.github.io/"
+authors:
+  - family-names: Wei
+    given-names: Xilin
+  - family-names: Ding
+    given-names: Shengyuan
+  - family-names: Fang
+    given-names: Xinyu
+  - family-names: Gu
+    given-names: Tiancheng
+  - family-names: Wang
+    given-names: Yuchi
+  - family-names: Li
+    given-names: Zhixun
+  - family-names: Liu
+    given-names: Ziyu
+  - family-names: Zang
+    given-names: Yuhang
+  - family-names: Yu
+    given-names: Weixiang
+  - family-names: Lu
+    given-names: Cheng
+  - family-names: Sun
+    given-names: Chonggao
+  - family-names: Zhou
+    given-names: Tong
+  - family-names: Lin
+    given-names: Dahua
+  - family-names: Zhang
+    given-names: Hang
+  - family-names: Bai
+    given-names: Shuai
+  - family-names: Liu
+    given-names: Dayiheng
+preferred-citation:
+  type: unpublished
+  title: "Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models"
+  year: 2026
+  url: "https://codesignbench.github.io/"
+  authors:
+    - family-names: Wei
+      given-names: Xilin
+    - family-names: Ding
+      given-names: Shengyuan
+    - family-names: Fang
+      given-names: Xinyu
+    - family-names: Gu
+      given-names: Tiancheng
+    - family-names: Wang
+      given-names: Yuchi
+    - family-names: Li
+      given-names: Zhixun
+    - family-names: Liu
+      given-names: Ziyu
+    - family-names: Zang
+      given-names: Yuhang
+    - family-names: Yu
+      given-names: Weixiang
+    - family-names: Lu
+      given-names: Cheng
+    - family-names: Sun
+      given-names: Chonggao
+    - family-names: Zhou
+      given-names: Tong
+    - family-names: Lin
+      given-names: Dahua
+    - family-names: Zhang
+      given-names: Hang
+    - family-names: Bai
+      given-names: Shuai
+    - family-names: Liu
+      given-names: Dayiheng

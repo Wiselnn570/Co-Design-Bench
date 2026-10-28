@@ -1,0 +1,16 @@
+[
+  {
+    "uuid": "demo-one",
+    "rubrics": [
+      {"req": "Demo criterion A"}
+    ]
+  },
+  {
+    "uuid": "demo-two",
+    "rubrics": [
+      {"req": "Demo criterion B"},
+      {"req": "Demo criterion C"},
+      {"req": "Demo criterion D"}
+    ]
+  }
+]

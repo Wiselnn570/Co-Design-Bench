@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "purpose": "Sanitized reference for the original solve-then-evaluate experiment; not an executable platform submission specification.",
+  "provenance": {
+    "template": "codesign-unified",
+    "template_revision": "6207e81d03194ca669662dc4e403c7abc4bacb00",
+    "tools_revision": "063fc71ef0f5033d22f09fc913a2bae819a28a11",
+    "review_date": "2026-10-28",
+    "evidence": [
+      "Read-only inspection of the reference job parameters and rendered environment",
+      "Local copy of the matching evaluation tools, identified by TOOLS_VERSION"
+    ]
+  },
+  "task_population": {
+    "full_experiment": {"me_tasks": 100, "re_tasks": 173, "total_tasks": 273},
+    "prepared_public_subset": {"me_tasks": 96, "re_tasks": 0, "criteria": 521},
+    "scheduling_unit": "One case per job, with solve followed by evaluation in the same job",
+    "solver_input": "User request, initial application, and task assets; no evaluation rubric",
+    "evaluation_input": "The same task plus the fixed expert-authored rubric and final solver workspace"
+  },
+  "requested_launch_configuration": {
+    "combinations": 1,
+    "skipped_models": 0,
+    "group_concurrency": 2,
+    "solve_timeout_seconds": 43200,
+    "evaluation_budget_seconds": 43200,
+    "job_runtime_timeout_seconds": 90000,
+    "note": "These are the supplied launch settings, not a claim about the group's current scheduling state."
+  },
+  "observed_reference_job": {
+    "solve_agent": "claude-code",
+    "solve_timeout_seconds": 43200,
+    "agent_max_runtime_seconds": 43200,
+    "solve_stage_budget_seconds": 45000,
+    "max_solve_attempts": 10,
+    "evaluation_budget_seconds": 43200,
+    "job_runtime_timeout_seconds": 90000,
+    "judge_model": "mr.claude-opus-4-8",
+    "judge_reasoning_effort": "low",
+    "judge_call_timeout_seconds": 7200,
+    "judge_max_tries": 2,
+    "mandatory_prejudge_render": true,
+    "render_attempt_timeout_seconds": 420,
+    "render_extra_timeout_retries": 2,
+    "render_retry_timeout_scale": 1.5,
+    "suspected_empty_page_below_body_words": 5,
+    "judge_browser_enabled": false,
+    "configured_optional_browser_viewport": "1440x900",
+    "artifact_mode": "full",
+    "platform_pass_score_threshold": 0.75
+  },
+  "interpretation": {
+    "judge_browser_enabled": "Disables the optional live Playwright MCP interaction session. Mandatory browser rendering and screenshot/DOM evidence still run before judging.",
+    "viewport": "1440x900 configures the optional interaction browser. The inspected headless Chrome renderer separately defaults to a 1440x1600 screenshot; these are different settings.",
+    "platform_pass_score_threshold": "A platform job-level flag; it is not the benchmark's full-task-pass metric, which requires every fixed criterion to PASS.",
+    "budgets": "The 43200-second solve allowance, 45000-second enclosing solve stage, 43200-second evaluation budget, and 7200-second individual judge call timeout apply at different levels."
+  },
+  "source_files": [
+    {
+      "name": "reflow_modeb_eval_after_solve.sh",
+      "role": "Evaluation orchestration, render gate, judge/refute calls, recovery, and attribution",
+      "sha256": "0808273bdc8dc0e1c78c83645b4c8b5ee667cb91c12ee3b03bc0f84187e782a6"
+    },
+    {
+      "name": "reflow_render_judge_cases.py",
+      "role": "Mandatory rendering on scratch copies and injection of render evidence",
+      "sha256": "781ee4c8b548eba6bec281084051a4c44a911b5b70b72eafad8a6b83efde3aaf"
+    },
+    {
+      "name": "reflow_render_case_eval.sh",
+      "role": "Evaluation-only runtime repairs before the headless Chrome renderer",
+      "sha256": "225a607896460b9e74ede363c4e1f1539b910907b5a90059daf3ba6e867a925d"
+    },
+    {
+      "name": "judge_cli.py",
+      "role": "Original primary and adversarial verifier prompt templates before runtime patches",
+      "sha256": "976e5aed48c4ddf1da84282c5190c08f9a3de425fbf24f0b310bb744575c31ee"
+    },
+    {
+      "name": "reflow_patch_judge_cli_render_guard.py",
+      "role": "Runtime patches for mandatory render evidence and optional browser access",
+      "sha256": "7a5f46c7c06ada28174ab912f7a92ff67235b0c4d5da1c6c2985def22b9ec262"
+    },
+    {
+      "name": "reflow_guard_visual_evidence.py",
+      "public_path": "evaluation/guard_visual_evidence.py",
+      "copy_mode": "Byte-identical copy of the reviewed original script",
+      "role": "Audit unsupported render or screenshot claims",
+      "sha256": "3ff1fb424c0a6a3c883584c58be27adb2e93c77dfb06cf551686de1299899e19"
+    }
+  ],
+  "public_runner": {
+    "entrypoint": "cdb judge",
+    "implementation": "codesignbench/judge.py",
+    "relationship": "Portable reference implementation; not the original platform harness",
+    "differences": [
+      "Supports static HTML and supported npm build outputs rather than all original rendering and runtime adapters",
+      "Uses independent live Playwright evidence in both judging stages",
+      "Requires both stages to succeed and rejects verifier upgrades; does not fall back to an unverified primary result",
+      "Validates fixed task IDs, exact criterion text/order, and evidence artifact paths",
+      "Does not implement the original low-score solvability attribution or platform scheduling"
+    ]
+  }
+}

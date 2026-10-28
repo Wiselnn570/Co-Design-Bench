@@ -1,0 +1,16 @@
+{
+  "synthetic-render-ok": {
+    "status": "RENDER_OK",
+    "process_rc": 0,
+    "render_rc": 0,
+    "body_words": 12,
+    "dom_path": "synthetic-title.dom.html"
+  },
+  "synthetic-render-failed": {
+    "status": "RENDER_FAIL",
+    "process_rc": 1,
+    "render_rc": null,
+    "body_words": 0,
+    "dom_path": ""
+  }
+}

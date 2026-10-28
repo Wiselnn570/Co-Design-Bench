@@ -1,0 +1,16 @@
+[
+  {
+    "uuid": "demo-one",
+    "requirements": [
+      {"req": "Demo criterion A", "verdict": "PASS", "evidence": "Synthetic scoring example."}
+    ]
+  },
+  {
+    "uuid": "demo-two",
+    "requirements": [
+      {"req": "Demo criterion B", "verdict": "PASS", "evidence": "Synthetic scoring example."},
+      {"req": "Demo criterion C", "verdict": "PARTIAL", "evidence": "Synthetic scoring example."},
+      {"req": "Demo criterion D", "verdict": "FAIL", "evidence": "Synthetic scoring example."}
+    ]
+  }
+]
