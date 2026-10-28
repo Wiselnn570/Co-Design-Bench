@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "file": "github-hero.png",
+    "size": [
+      1400,
+      700
+    ],
+    "real_application_output": "f725ea72-qwen3.8-max-0902.webp",
+    "case_id": "f725ea72",
+    "model": "qwen3.8-max-0902",
+    "paper_scope": {
+      "tasks": 273,
+      "criteria": 2331,
+      "models": 10
+    },
+    "public_scope": {
+      "tasks": 96,
+      "criteria": 521
+    },
+    "arxiv": "2610.35138",
+    "source_file": "receipt-output.webp",
+    "source_sha256": "d00efe2df53fc0815faf1fdbeb5c1b075c65541e8ac89f4c3fdf6959b31db036"
+  },
+  "pipeline": {
+    "file": "github-pipeline.png",
+    "size": [
+      1400,
+      340
+    ],
+    "criteria_hidden_from_solver": true
+  },
+  "generator": "make_github_visuals.py"
+}

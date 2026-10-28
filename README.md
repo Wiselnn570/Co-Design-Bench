@@ -1,92 +1,56 @@
 <p align="center">
-  <img src="docs/assets/logo.png" alt="Co-Design Bench mascot" width="108" />
+  <img src="docs/assets/github-hero.png" alt="Co-Design Bench: real applications, multimodal requests, complete revisions" width="1000" />
 </p>
 
 <h1 align="center">Co-Design Bench</h1>
-
 <p align="center"><strong>Multimodal Collaborative Coding Evaluation for Agentic Models</strong></p>
 
 <p align="center">
-  <a href="https://codesignbench.github.io/">Website</a> ·
-  <a href="#dataset">Dataset</a> ·
+  <a href="https://arxiv.org/abs/2610.35138"><img src="https://img.shields.io/badge/arXiv-2610.35138-7457D9" alt="arXiv 2610.35138" /></a>
+  <a href="https://codesignbench.github.io/"><img src="https://img.shields.io/badge/Project-Website-008C95" alt="Project website" /></a>
+  <a href="docs/dataset.md"><img src="https://img.shields.io/badge/Public_subset-ME_96-152B46" alt="Public subset: 96 Multimodal Editing tasks" /></a>
+  <a href="#quickstart"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB" alt="Python 3.10 or later" /></a>
+</p>
+
+<p align="center">
+  <a href="#see-the-tasks">Task gallery</a> ·
   <a href="#quickstart">Quickstart</a> ·
-  <a href="#evaluation">Evaluation</a> ·
+  <a href="docs/dataset.md">Dataset</a> ·
+  <a href="#leaderboard">Leaderboard</a> ·
   <a href="#documentation">Documentation</a> ·
   <a href="#citation">Citation</a>
 </p>
 
+Coding agents receive an existing application and a real user's multimodal
+request. Co-Design Bench asks whether the final revision satisfies every
+requirement, with evidence from its source and running interface.
+
+## See the tasks
+
 <p align="center">
-  📑 <a href="https://arxiv.org/abs/2610.35138">Paper</a>
+  <a href="docs/case_studies.md"><img src="docs/assets/task-showcase.gif" alt="Real Co-Design Bench cases: user requests, starting applications, and agent revisions" width="1000" /></a>
 </p>
 
-[![Co-Design Bench overview: 273 benchmark tasks across two editing tracks, with 96 Multimodal Editing tasks prepared for public release; task inputs, agent revisions, evidence collection, and judge-then-refute evaluation](docs/assets/overview.png)](docs/assets/overview.svg)
+**Explore real inputs and revisions:** [case studies](docs/case_studies.md) ·
+[interactive task gallery](https://codesignbench.github.io/#cases).
 
-*From real-user requests to working application revisions. The overview distinguishes the full 273-task evaluation set from the 96-task subset prepared for public release.*
+## Why Co-Design Bench?
 
-Co-Design Bench evaluates whether coding agents can turn real users' multimodal
-requests into complete, working revisions of existing applications. Agents inspect
-a runnable starting application, edit its source, and verify the result in a browser.
-Hidden, expert-authored acceptance criteria assess the requested changes and
-preservation constraints using source and browser evidence.
+| Existing applications | Multimodal intent | Judge, then refute |
+| --- | --- | --- |
+| Revise runnable projects while preserving behavior the user wants to keep. | Ground requests in annotated screenshots and optional audio, video, documents, or images. | Check fixed expert criteria against source and browser evidence, then independently challenge positive credit. |
 
-Start with the self-contained scoring example below, or use your agent harness to
-produce one revised application per task and evaluate it with `cdb prepare`,
-`cdb judge`, and `cdb score`.
+<p align="center">
+  <a href="docs/evaluation.md"><img src="docs/assets/github-pipeline.png" alt="Starting application and request → agent revision → source and browser evidence → judge and refute → task-weighted scores" width="1000" /></a>
+</p>
 
-## Dataset
-
-**The prepared public subset contains 96 Multimodal Editing (ME) tasks and
-521 acceptance criteria.** These tasks belong to the full 100-task ME track.
-The Repository Editing (RE) track is not released.
-
-This repository contains public data preparation, a reference judge,
-task-weighted scoring tools, the paper, documentation, and release metadata.
-**The dataset archives are not included.** The [dataset guide](docs/dataset.md)
-describes the prepared package, task layout, and release scope.
-The public subset has been prepared, but this repository does not yet provide a
-public dataset download link. The scoring example is available immediately.
-
-The [public case list](data/case_ids_me96.txt) fixes the 96 task IDs. The
-[release manifest](data/public_release_manifest.json) records the scope, counts,
-and archive checksums. Primary attachment counts for these 96 tasks are:
-
-| Primary attachment | Tasks |
-| --- | ---: |
-| Audio | 32 |
-| Video | 24 |
-| Document | 16 |
-| Image | 4 |
-| No extra attachment | 20 |
-| Total | 96 |
-
-ME tasks identify the edit region on an annotated screenshot. Tasks without an
-extra attachment still include the request, initial application, and annotation.
-
-<details>
-<summary><strong>Full evaluation set and public release scope</strong></summary>
-
-The paper evaluates **273 tasks and 2,331 acceptance criteria** across two tracks.
-The following counts describe the full evaluation set, including unreleased tasks.
-
-| Track | Evaluation tasks | Evaluation criteria | Prepared public subset |
-| --- | ---: | ---: | --- |
-| Multimodal Editing (ME) | 100 | 553 | 96 tasks / 521 criteria |
-| Repository Editing (RE) | 173 | 1,778 | Not released |
-| Total | 273 | 2,331 | 96 tasks / 521 criteria |
-
-Across the full 100-task ME track, primary attachment counts are audio 32,
-video 27, document 17, image 4, and none 20. RE tasks require coordinated
-changes across components, routes, application state, data flow, or content.
-
-</details>
+No gold code or target screenshot is required.
+[Evaluation protocol](docs/evaluation.md) ·
+[original experiment sources and settings](evaluation/README.md).
 
 ## Quickstart
 
-### 1. Install and try scoring
-
-Open a terminal in this repository's root directory after cloning it or extracting
-the release ZIP. Python 3.10+ is required; the Python package has no runtime
-dependencies.
+From the repository root, with Python 3.10+:
 
 ```bash
 python -m pip install -e .
@@ -94,29 +58,23 @@ cdb list
 cdb score --cases examples/cases.json --results examples/final_verdicts.json
 ```
 
-The scoring example uses two **synthetic tasks**, needs no model access or dataset
-download, and produces Strict **66.67%**, Graded **75.0%**, and Full pass **50.0%**.
+This self-contained example uses **two synthetic tasks**, requires no model or
+dataset download, and returns **Strict 66.67% · Graded 75.0% · Full pass 50.0%**.
+See the [example walkthrough](examples/README.md).
 
-### 2. Prepare candidate applications
+<details>
+<summary><strong>Evaluate your agent's application revisions</strong></summary>
 
-Use task inputs without rubrics to run your agent, then place its final source
-under `submissions/<case_id>/`. With an extracted evaluation archive:
+Use the solver inputs without rubrics to run your agent. Save each final
+application under `submissions/<case_id>/`. Match the evaluation inputs to the
+[public manifest](data/public_release_manifest.json), then prepare the cases:
 
 ```bash
 cdb prepare --dataset /path/to/evaluation-inputs --submissions /path/to/submissions --out work/evaluation
 ```
 
-This checks the fixed public task IDs and criteria, then writes `cases.json`.
-Add `--case <public_task_id>` to prepare a smaller subset. See the
-[submission guide](docs/submissions.md) for input and output layouts.
-Match the dataset archives to the public manifest before preparing cases;
-archives for the full 273-task experiment use a different task population.
-
-### 3. Judge and score
-
-The reference judge needs an authenticated Claude CLI, Node.js, Playwright,
-and Chromium. Run application builds and agent tools in a disposable evaluation
-environment. Pass a model name supported by your Claude CLI.
+Add `--case <public_task_id>` for a smaller run. The reference judge requires an
+authenticated Claude CLI, Node.js, Playwright, and Chromium:
 
 ```bash
 npm install --no-save playwright
@@ -125,49 +83,33 @@ cdb judge --cases work/evaluation/cases.json --out results/run-1 --model opus
 cdb score --cases work/evaluation/cases.json --results results/run-1/journal.jsonl --out results/run-1/scores.json
 ```
 
-The runner makes two independent agent calls and requires a complete set of final
-verdicts before scoring. It supports static frontend applications and npm builds.
-It is a **public reference runner**; reproducing the paper also requires its
-complete experiment infrastructure and evidence audits. See the
-[evaluation guide](docs/evaluation.md) for supported applications and limitations.
+Set `--model` to an identifier accepted by your Claude CLI. Run builds and agent
+tools in a disposable evaluation environment. The reference runner supports
+static frontend applications and npm builds; reproducing the paper also requires
+its complete infrastructure and evidence audits.
 
-## Evaluation
+[Submission format](docs/submissions.md) · [Runtime and evaluation guide](docs/evaluation.md).
 
-[![Evaluation pipeline: evidence extraction and primary grading, followed by adversarial verification, evidence audits, and supplementary failure attribution](docs/assets/evaluation-pipeline.png)](docs/assets/evaluation-pipeline.png)
+</details>
 
-*Judge, then refute: collect evidence for each requirement, assign a verdict, and independently challenge positive credit before aggregating scores.*
+## Dataset
 
-Both tracks use the same four stages:
+| Scope | Tasks | Acceptance criteria |
+| --- | ---: | ---: |
+| **Public ME subset** | **96** | **521** |
+| Full paper evaluation: 100 ME + 173 RE | 273 | 2,331 |
 
-1. **Task inputs.** Provide the runnable pre-edit application, normalized request,
-   retained context, and attachments. Keep acceptance criteria hidden from the solver.
-2. **Agent revision.** The agent inspects the application, edits source files,
-   and builds and runs the result through an agentic harness.
-3. **Evidence collection.** Collect source diffs, rendered DOM, screenshots,
-   and browser interactions from the final application.
-4. **Judge → Refute.** Grade each criterion PASS, PARTIAL, or FAIL. A separate
-   verifier challenges PASS and PARTIAL verdicts for stubs, hardcoded outputs,
-   unreachable features, and requirement mismatches. Audit evidence before scoring.
-
-Evaluation requires no gold code or target screenshots. For a task with `n`
-acceptance criteria, the final verdicts determine its completion scores:
-
-```text
-Strict     R = #PASS / n
-Graded     G = (#PASS + 0.5 × #PARTIAL) / n
-Full pass  F = share of tasks with R = 1
-```
-
-Strict and Graded are averaged with **equal weight per task**. PARTIAL earns
-no Strict credit and half Graded credit. Full pass counts only tasks where every
-criterion is PASS. See the [evaluation guide](docs/evaluation.md) for the protocol.
+The public subset covers Multimodal Editing; Repository Editing is outside the
+release. Dataset archives are distributed separately from this code repository.
+[Dataset format and access](docs/dataset.md) ·
+[fixed public case IDs](data/case_ids_me96.txt) ·
+[release manifest](data/public_release_manifest.json).
 
 ## Leaderboard
 
-The paper reports ten model endpoints under one shared agentic harness
-(Claude Code) on **all 273 tasks: 100 ME + 173 RE**, including unreleased tasks.
-Strict, Graded, and Full pass are overall scores; ME strict and RE strict are
-per-track scores. **All values below are percentages.**
+**Full 273-task paper evaluation**, using ten model endpoints with the shared
+Claude Code harness. All values are percentages; ME and RE strict are per-track
+scores.
 
 | Model | Strict | Graded | Full pass | ME strict | RE strict |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -182,26 +124,29 @@ per-track scores. **All values below are percentages.**
 | glm-5.2 | 56.7 | 63.7 | 9.5 | 57.2 | 56.4 |
 | grok-4.6 | 51.1 | 58.0 | 6.6 | 46.7 | 53.6 |
 
-Explore the [interactive leaderboard](https://codesignbench.github.io/#leaderboard)
-on the project website.
+Strict gives credit only to PASS; Graded gives half credit to PARTIAL; Full pass
+requires every criterion in a task to PASS. All metrics use **equal weight per
+task**. [Metric definitions](docs/evaluation.md#metrics) ·
+[interactive leaderboard](https://codesignbench.github.io/#leaderboard).
 
 ## Documentation
 
-| Resource | Contents |
+| Start here | Reference |
 | --- | --- |
-| [Dataset guide](docs/dataset.md) | Task inputs, prepared package layout, and public release scope. |
-| [Submission guide](docs/submissions.md) | Prepare agent outputs and bind them to fixed evaluation criteria. |
-| [Evaluation guide](docs/evaluation.md) | Evidence collection, judge-then-refute protocol, and scoring definitions. |
-| [Original experiment reference](evaluation/README.md) | Reviewed solve → evaluate settings, source identities, and original visual-claim audit. |
-| [Scoring example](examples/README.md) | Run the scorer without model access or benchmark archives. |
-| [Paper](docs/Co-Design-Bench.pdf) | Benchmark construction, full evaluation, and analysis. |
-| [Public case list](data/case_ids_me96.txt) | The fixed 96 task IDs in their retained order. |
-| [Release manifest](data/public_release_manifest.json) | Scope, counts, and prepared archive checksums. |
-| [Citation metadata](CITATION.cff) | Authors and arXiv citation for reference managers. |
+| [Real case studies](docs/case_studies.md) | Requests, applications, and revisions. |
+| [Dataset](docs/dataset.md) · [Submissions](docs/submissions.md) | Task inputs and candidate layout. |
+| [Evaluation](docs/evaluation.md) · [Original experiment reference](evaluation/README.md) | Protocol, runtime, and reviewed source configuration. |
+| [Scoring example](examples/README.md) | A complete run without model access. |
+| [arXiv paper](https://arxiv.org/abs/2610.35138) · [Bundled PDF](docs/Co-Design-Bench.pdf) | Benchmark construction, results, and analysis. |
+| [Citation metadata](CITATION.cff) | Import the paper citation into a reference manager. |
 
 ## Citation
 
-If you use Co-Design Bench, please cite the [arXiv paper](https://arxiv.org/abs/2610.35138):
+Please cite [Co-Design Bench (arXiv:2610.35138)](https://arxiv.org/abs/2610.35138)
+if you use the benchmark.
+
+<details>
+<summary><strong>BibTeX</strong></summary>
 
 ```bibtex
 @misc{wei2026codesignbench,
@@ -217,3 +162,5 @@ If you use Co-Design Bench, please cite the [arXiv paper](https://arxiv.org/abs/
   url = {https://arxiv.org/abs/2610.35138}
 }
 ```
+
+</details>

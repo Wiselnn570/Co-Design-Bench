@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "source_site": "https://codesignbench.github.io/",
+    "source_site_data": "data/site-data.json",
+    "source_site_data_sha256": "df0ca1634d106c91ee98a5adf6c47e392f96e9957b059b92961d7435d19ba156"
+  },
+  "cases": [
+    {
+      "id": "7d7953f8",
+      "request": "The attached combo_text_ref.mp4 is a recording of three vertically stacked lines of text, each with a different animation. Look carefully at the effect on each line. Red circles mark three headings on the page: ① the hero heading, ② “The Shoreline Routine”, and ③ the large quotation near the bottom. Reproduce video rows 1, 2 and 3 on headings ①, ② and ③ respectively. The three effects must be distinct, correctly matched to the video, and loop continuously. Keep the heading text unchanged; only add animation.",
+      "editsBaseline": "assets/cases/7d7953f8-baseline.webp",
+      "outputs": {
+        "qwen3.8-max-0902": "assets/cases/outputs/7d7953f8-qwen3.8-max-0902.webp"
+      }
+    },
+    {
+      "id": "b0e36f34",
+      "request": "Use this issue’s click audit in the attachments to correct the statistics inside the red circles. Don’t change the other links’ status or content.",
+      "editsBaseline": "assets/cases/outputs/b0e36f34-baseline.webp",
+      "outputs": {
+        "qwen3.8-max-0902": "assets/cases/outputs/b0e36f34-qwen3.8-max-0902.webp"
+      }
+    },
+    {
+      "id": "f725ea72",
+      "request": "Last month’s salt expense was recorded wrong. The attachment is the supplier’s actual receipt: correct row ① to the amount actually paid for the salt line. Afterwards the home page can’t keep the old numbers — the amount spent, the amount remaining (②), the salt slice of the donut chart and the salt entry’s amount and share in the legend all have to match, and the other four categories’ shares will change too. Recompute the two totals at the bottom of the report. Don’t touch any other expense row, and leave “average cost per coral” alone — we calculate that differently.",
+      "editsBaseline": "assets/cases/outputs/f725ea72-baseline.webp",
+      "outputs": {
+        "qwen3.8-max-0902": "assets/cases/outputs/f725ea72-qwen3.8-max-0902.webp"
+      }
+    }
+  ]
+}

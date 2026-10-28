@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "public_source_site": "https://codesignbench.github.io/",
+  "site_data": "data/site-data.json",
+  "site_data_sha256": "df0ca1634d106c91ee98a5adf6c47e392f96e9957b059b92961d7435d19ba156",
+  "packaged_metadata": "showcase-sources/site-data.json",
+  "packaged_metadata_sha256": "17cec617bacb7bc3a0695368d289d6ae922e68a0a6d0425fc394c7762045e97a",
+  "description": "Real baseline/output screenshots; motion stage samples an archived output browser recording. No gold target or new application run is generated.",
+  "generator": "docs/assets/make_task_showcase.py",
+  "video_sampling_fps": 5,
+  "video_speed": "Original playback duration, sampled frames",
+  "cases": [
+    {
+      "case_id": "7d7953f8",
+      "track": "ME",
+      "public_whitelist_verified": true,
+      "model": "qwen3.8-max-0902",
+      "request": "The attached combo_text_ref.mp4 is a recording of three vertically stacked lines of text, each with a different animation. Look carefully at the effect on each line. Red circles mark three headings on the page: ① the hero heading, ② “The Shoreline Routine”, and ③ the large quotation near the bottom. Reproduce video rows 1, 2 and 3 on headings ①, ② and ③ respectively. The three effects must be distinct, correctly matched to the video, and loop continuously. Keep the heading text unchanged; only add animation.",
+      "screenshots": {
+        "before": "assets/cases/7d7953f8-baseline.webp",
+        "output": "assets/cases/outputs/7d7953f8-qwen3.8-max-0902.webp"
+      },
+      "normalized_screenshot_width": 1200,
+      "crop_box": [
+        0,
+        0,
+        1200,
+        750
+      ],
+      "archived_video": "assets/cases/outputs/7d7953f8-qwen3.8-max-0902.mp4",
+      "source_files": [
+        {
+          "path": "assets/cases/7d7953f8-baseline.webp",
+          "packaged_path": "showcase-sources/7d7953f8-baseline.webp",
+          "sha256": "418e992db287885557657e2fc7635806aaa2807d29a0b7ec0830a401e56b6acd"
+        },
+        {
+          "path": "assets/cases/outputs/7d7953f8-qwen3.8-max-0902.webp",
+          "packaged_path": "showcase-sources/7d7953f8-qwen3.8-max-0902.webp",
+          "sha256": "9a574652470c7756ec06566d2516df5accd3e8a2b7c8b190b01a79a88cb07cf8"
+        },
+        {
+          "path": "assets/cases/outputs/7d7953f8-qwen3.8-max-0902.mp4",
+          "packaged_path": "showcase-sources/7d7953f8-qwen3.8-max-0902.mp4",
+          "sha256": "99617511f63b35437d035b378ef848178383a06c1384fb6d22d032c2c8a72fab"
+        }
+      ]
+    },
+    {
+      "case_id": "b0e36f34",
+      "track": "ME",
+      "public_whitelist_verified": true,
+      "model": "qwen3.8-max-0902",
+      "request": "Use this issue’s click audit in the attachments to correct the statistics inside the red circles. Don’t change the other links’ status or content.",
+      "screenshots": {
+        "before": "assets/cases/outputs/b0e36f34-baseline.webp",
+        "output": "assets/cases/outputs/b0e36f34-qwen3.8-max-0902.webp"
+      },
+      "normalized_screenshot_width": 1200,
+      "crop_box": [
+        0,
+        0,
+        1200,
+        950
+      ],
+      "archived_video": null,
+      "source_files": [
+        {
+          "path": "assets/cases/outputs/b0e36f34-baseline.webp",
+          "packaged_path": "showcase-sources/b0e36f34-baseline.webp",
+          "sha256": "b01a90e8c27f36e86992a05feaaeba49c94254df2e76e1cf2112d69263643d2a"
+        },
+        {
+          "path": "assets/cases/outputs/b0e36f34-qwen3.8-max-0902.webp",
+          "packaged_path": "showcase-sources/b0e36f34-qwen3.8-max-0902.webp",
+          "sha256": "109041ea6354806cd4b8418c2f49051e3d8d17010391fc41d2472112450df944"
+        }
+      ]
+    },
+    {
+      "case_id": "f725ea72",
+      "track": "ME",
+      "public_whitelist_verified": true,
+      "model": "qwen3.8-max-0902",
+      "request": "Last month’s salt expense was recorded wrong. The attachment is the supplier’s actual receipt: correct row ① to the amount actually paid for the salt line. Afterwards the home page can’t keep the old numbers — the amount spent, the amount remaining (②), the salt slice of the donut chart and the salt entry’s amount and share in the legend all have to match, and the other four categories’ shares will change too. Recompute the two totals at the bottom of the report. Don’t touch any other expense row, and leave “average cost per coral” alone — we calculate that differently.",
+      "screenshots": {
+        "before": "assets/cases/outputs/f725ea72-baseline.webp",
+        "output": "assets/cases/outputs/f725ea72-qwen3.8-max-0902.webp"
+      },
+      "normalized_screenshot_width": 1200,
+      "crop_box": [
+        0,
+        0,
+        1200,
+        750
+      ],
+      "archived_video": null,
+      "source_files": [
+        {
+          "path": "assets/cases/outputs/f725ea72-baseline.webp",
+          "packaged_path": "showcase-sources/f725ea72-baseline.webp",
+          "sha256": "c4aed59fb85038960b367662378d0e670f7ce00c9c3357877bfebc246a06d293"
+        },
+        {
+          "path": "assets/cases/outputs/f725ea72-qwen3.8-max-0902.webp",
+          "packaged_path": "showcase-sources/f725ea72-qwen3.8-max-0902.webp",
+          "sha256": "d00efe2df53fc0815faf1fdbeb5c1b075c65541e8ac89f4c3fdf6959b31db036"
+        }
+      ]
+    }
+  ],
+  "artifacts": {
+    "task-showcase.gif": {
+      "width": 1280,
+      "height": 890,
+      "bytes": 3280481,
+      "sha256": "38002ae59b54cad9ac89764fde38fb13aa718a7ef874112913e3a66abef60071",
+      "frames": 74
+    },
+    "task-showcase.png": {
+      "width": 1280,
+      "height": 1520,
+      "bytes": 565353,
+      "sha256": "eddff6dbfb24032712d4812437b6a9505ab7a9667dc24e17dbfcd39dfcacec0e"
+    }
+  }
+}
