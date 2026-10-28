@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "If you use Co-Design Bench, please cite the manuscript below."
+message: "If you use Co-Design Bench, please cite the arXiv preprint below."
 title: "Co-Design Bench"
-url: "https://codesignbench.github.io/"
+url: "https://arxiv.org/abs/2610.35138"
 authors:
   - family-names: Wei
     given-names: Xilin
@@ -36,10 +36,15 @@ authors:
   - family-names: Liu
     given-names: Dayiheng
 preferred-citation:
-  type: unpublished
+  type: article
   title: "Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models"
+  journal: "arXiv preprint"
   year: 2026
-  url: "https://codesignbench.github.io/"
+  url: "https://arxiv.org/abs/2610.35138"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.35138"
+      description: "arXiv identifier"
   authors:
     - family-names: Wei
       given-names: Xilin

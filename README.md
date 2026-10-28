@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  📑 <a href="docs/Co-Design-Bench.pdf">Paper</a>
+  📑 <a href="https://arxiv.org/abs/2610.35138">Paper</a>
 </p>
 
 [![Co-Design Bench overview: 273 benchmark tasks across two editing tracks, with 96 Multimodal Editing tasks prepared for public release; task inputs, agent revisions, evidence collection, and judge-then-refute evaluation](docs/assets/overview.png)](docs/assets/overview.svg)
@@ -197,11 +197,11 @@ on the project website.
 | [Paper](docs/Co-Design-Bench.pdf) | Benchmark construction, full evaluation, and analysis. |
 | [Public case list](data/case_ids_me96.txt) | The fixed 96 task IDs in their retained order. |
 | [Release manifest](data/public_release_manifest.json) | Scope, counts, and prepared archive checksums. |
-| [Citation metadata](CITATION.cff) | Authors and manuscript citation for reference managers. |
+| [Citation metadata](CITATION.cff) | Authors and arXiv citation for reference managers. |
 
 ## Citation
 
-If you use Co-Design Bench, please cite the [2026 manuscript](docs/Co-Design-Bench.pdf):
+If you use Co-Design Bench, please cite the [arXiv paper](https://arxiv.org/abs/2610.35138):
 
 ```bibtex
 @misc{wei2026codesignbench,
@@ -211,7 +211,9 @@ If you use Co-Design Bench, please cite the [2026 manuscript](docs/Co-Design-Ben
             Weixiang Yu and Cheng Lu and Chonggao Sun and Tong Zhou and
             Dahua Lin and Hang Zhang and Shuai Bai and Dayiheng Liu},
   year = {2026},
-  note = {Manuscript},
-  url = {https://codesignbench.github.io/}
+  eprint = {2610.35138},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2610.35138}
 }
 ```
